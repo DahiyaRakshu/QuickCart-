@@ -5,5 +5,17 @@ function Header() {
     </header>
   );
 }
+function Header({ cartCount, onCartClick }) {
+  return (
+    <header>
+      <h2>QuickCart</h2>
+
+      <button onClick={onCartClick}>
+        Cart ({cartCount})
+      </button>
+    </header>
+  );
+}
+
 
 export default Header;
