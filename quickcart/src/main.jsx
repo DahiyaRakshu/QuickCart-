@@ -8,3 +8,8 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+import { CartProvider } from "./context/CartContext";
+
+<CartProvider>
+   <App />
+</CartProvider>

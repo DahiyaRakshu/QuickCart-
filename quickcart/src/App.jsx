@@ -1,33 +1,21 @@
-import Header from "./components/Header";
-import ProductList from "./components/ProductList";
-import "./styles/styles.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Category from "./pages/Category";
+import Cart from "./pages/Cart";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <ProductList />
-    </div>
-  );
-}
-import { useState } from "react";
+    <BrowserRouter>
+      <Navbar />
 
-function App() {
-  const [cart, setCart] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/category/:name" element={<Category />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
 
-  return (
-    <>
-      <Header cartCount={cart.length} onCartClick={() => setIsCartOpen(true)} />
-      <ProductList cart={cart} setCart={setCart} />
-      {isCartOpen && (
-        <CartSidebar
-          cart={cart}
-          setCart={setCart}
-          closeCart={() => setIsCartOpen(false)}
-        />
-      )}
-    </>
+    </BrowserRouter>
   );
 }
 
